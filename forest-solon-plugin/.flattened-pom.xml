@@ -1,68 +1,44 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.dtflys.forest</groupId>
-        <artifactId>forest-test</artifactId>
-        <version>${revision}</version>
-    </parent>
 
-    <artifactId>forest-spring-boot-test</artifactId>
-    <version>${revision}</version>
-    <packaging>jar</packaging>
+    <artifactId>forest-solon-plugin</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
     <name>${project.artifactId}</name>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <parent>
+        <groupId>com.dtflys.forest</groupId>
+        <artifactId>forest</artifactId>
+        <version>2.0.0-SNAPSHOT</version>
+    </parent>
 
     <dependencies>
-
-
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
-            <version>${spring-boot.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <scope>test</scope>
+            <groupId>org.noear</groupId>
+            <artifactId>solon</artifactId>
+            <version>${solon.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.dtflys.forest</groupId>
-            <artifactId>forest-spring-boot-starter</artifactId>
+            <artifactId>forest-core</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <scope>test</scope>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>${protobuf.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <groupId>org.noear</groupId>
+            <artifactId>solon-test-junit4</artifactId>
+            <version>${solon.version}</version>
             <scope>test</scope>
         </dependency>
-
 
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -70,6 +46,7 @@
             <version>${fastjson.version}</version>
             <scope>test</scope>
         </dependency>
+
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -92,6 +69,7 @@
             <scope>test</scope>
         </dependency>
 
+
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -112,19 +90,8 @@
             <version>${byte-buddy.version}</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-deploy-plugin</artifactId>
-              <version>${maven-deploy-plugin.version}</version>
-              <configuration>
-                <skip>true</skip>
-              </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
