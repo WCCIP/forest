@@ -427,14 +427,26 @@
 	</build>
 
 	<distributionManagement>
-		<snapshotRepository>
-			<id>oss-snapshot</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
+<!--		<snapshotRepository>-->
+<!--			<id>oss-snapshot</id>-->
+<!--			<url>https://oss.sonatype.org/content/repositories/snapshots</url>-->
+<!--		</snapshotRepository>-->
+<!--		<repository>-->
+<!--			<id>oss-release</id>-->
+<!--			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>-->
+<!--		</repository>-->
 		<repository>
-			<id>oss-release</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+			<id>spark-release</id>
+			<name>spark-release-repository</name>
+			<url>http://8.130.161.209:8070/repository/maven-public/</url>
+			<!--            <url>https://maven.xinhuokj.com/repository/maven-releases/</url>-->
 		</repository>
+		<snapshotRepository>
+			<id>spark-snapshots</id>
+			<name>spark-snapshots-repository</name>
+			<url>http://8.130.161.209:8070/repository/spark-snapshots/</url>
+			<!--            <url>https://maven.xinhuokj.com/repository/maven-snapshots/</url>-->
+		</snapshotRepository>
 	</distributionManagement>
 
 
