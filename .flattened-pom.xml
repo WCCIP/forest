@@ -54,6 +54,9 @@
 		<jackson.version>2.18.2</jackson.version>
 		<jackson-databind.version>2.18.2</jackson-databind.version>
 		<jackson-annotations.version>2.18.2</jackson-annotations.version>
+		<tools-jackson.version>3.0.4</tools-jackson.version>
+		<tools-jackson-databind.version>3.0.4</tools-jackson-databind.version>
+		<tools-jackson-annotations.version>3.0.4</tools-jackson-annotations.version>
 		<gson.version>2.11.0</gson.version>
 		<xercesImpl.version>2.12.2</xercesImpl.version>
 		<slf4j.version>2.0.16</slf4j.version>
@@ -95,6 +98,7 @@
 		<module>forest-spring</module>
 		<module>forest-spring-boot-starter</module>
 		<module>forest-spring-boot3-starter</module>
+		<module>forest-spring-boot4-starter</module>
 		<module>forest-mock</module>
 		<module>forest-solon-plugin</module>
         <module>forest-test</module>

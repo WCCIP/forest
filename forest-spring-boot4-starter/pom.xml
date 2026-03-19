@@ -4,15 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>forest-spring-boot3-starter</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <artifactId>forest-spring-boot4-starter</artifactId>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
 
     <parent>
         <groupId>com.dtflys.forest</groupId>
         <artifactId>forest</artifactId>
-        <version>2.0.0-SNAPSHOT</version>
+        <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -20,7 +20,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
 
-        <spring-boot3.version>3.1.4</spring-boot3.version>
+        <spring-boot4.version>4.0.3</spring-boot4.version>
     </properties>
 
     <dependencyManagement>
@@ -28,19 +28,19 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-configuration-processor</artifactId>
-                <version>${spring-boot3.version}</version>
+                <version>${spring-boot4.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
-                <version>${spring-boot3.version}</version>
+                <version>${spring-boot4.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
-                <version>${spring-boot3.version}</version>
+                <version>${spring-boot4.version}</version>
             </dependency>
 
             <dependency>
@@ -52,10 +52,14 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot3.version}</version>
+                <version>${spring-boot4.version}</version>
             </dependency>
 
-
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-jackson</artifactId>
+                <version>${spring-boot4.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -90,14 +94,17 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>
-        
+
 
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
             <version>${protobuf.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jackson</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -132,25 +139,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson-databind.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>${jackson-databind.version}</version>
-        </dependency>
-
-
-        <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>${gson.version}</version>
@@ -172,7 +160,5 @@
         </dependency>
 
     </dependencies>
-
-
 
 </project>

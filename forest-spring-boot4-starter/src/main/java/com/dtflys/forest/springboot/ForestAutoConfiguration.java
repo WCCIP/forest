@@ -1,17 +1,25 @@
 package com.dtflys.forest.springboot;
 
+import com.dtflys.forest.converter.json.ForestJsonConverter;
+import com.dtflys.forest.converter.json.ForestToolsJacksonConverter;
 import com.dtflys.forest.config.SpringForestProperties;
 import com.dtflys.forest.interceptor.SpringInterceptorFactory;
 import com.dtflys.forest.reflection.SpringForestObjectFactory;
 import com.dtflys.forest.spring.ForestBeanProcessor;
 import com.dtflys.forest.springboot.annotation.ForestScannerRegister;
 import com.dtflys.forest.springboot.properties.ForestConfigurationProperties;
-import jakarta.annotation.Resource;
+import tools.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Role;
+
+import jakarta.annotation.Resource;
 
 
 @Configuration
@@ -44,6 +52,21 @@ public class ForestAutoConfiguration {
         return new SpringInterceptorFactory();
     }
 
+    /**
+     * Create ForestToolsJacksonConverter using the ObjectMapper from Spring context.
+     * <p>
+     * This allows Jackson annotations like @JsonNaming to work correctly,
+     * as the user-configured ObjectMapper (tools.jackson.core) will be used.
+     *
+     * @param objectMapper the ObjectMapper bean from Spring context
+     * @return ForestToolsJacksonConverter instance
+     */
+    @Bean
+    @ConditionalOnMissingBean(ForestJsonConverter.class)
+    @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
+    public ForestToolsJacksonConverter forestToolsJacksonConverter(ObjectMapper objectMapper) {
+        return new ForestToolsJacksonConverter(objectMapper);
+    }
 
 
     @Bean
